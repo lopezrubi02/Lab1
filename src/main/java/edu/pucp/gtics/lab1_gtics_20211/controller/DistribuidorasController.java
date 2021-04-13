@@ -6,12 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class DistribuidorasController {
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
     @Autowired
     DistribuidorasRepository distribuidorasRepository;
@@ -24,8 +29,18 @@ public class DistribuidorasController {
         return "/distribuidoras/lista";
     }
 
-    public String editarDistribuidoras(){
+    @GetMapping("/distribuidoras/editar")
+    public String editarDistribuidoras(Model model,
+                                       @RequestParam("iddistribuidora") int id){
+        Optional<Distribuidoras> optDistribuidora = distribuidorasRepository.findById(id);
 
+        if(optDistribuidora.isPresent()){
+            Distribuidoras distribuidoras = optDistribuidora.get();
+            model.addAttribute("distribuidora",distribuidoras);
+            return "distribuidoras/editar";
+        }else{
+            return "redirect:/lista"; //revisar que funcione
+        }
     }
 
     @GetMapping("distribuidoras/nuevo")
