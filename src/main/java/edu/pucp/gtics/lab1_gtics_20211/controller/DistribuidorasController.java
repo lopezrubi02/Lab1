@@ -3,6 +3,7 @@ package edu.pucp.gtics.lab1_gtics_20211.controller;
 import edu.pucp.gtics.lab1_gtics_20211.entity.Distribuidoras;
 import edu.pucp.gtics.lab1_gtics_20211.repository.DistribuidorasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class DistribuidorasController {
 
     @GetMapping("distribuidoras/lista")
     public String listaDistribuidoras (Model model){
-        List<Distribuidoras> list = distribuidorasRepository.findAll();
+        List<Distribuidoras> list = distribuidorasRepository.findAll(Sort.by("nombre"));
         model.addAttribute("lista",list);
         return "/distribuidoras/lista";
     }
