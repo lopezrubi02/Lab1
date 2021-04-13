@@ -51,9 +51,9 @@ public class DistribuidorasController {
         distribuidorasRepository.save(distribuidoras);
         return "redirect:/lista";
     }
-
+/*
     public String borrarDistribuidora(){
 
     }
-
+*/
 }
