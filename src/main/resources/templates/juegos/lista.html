@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -62,11 +62,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
-                        <!-- Completar -->
+                    <tr th:each="juego,v : ${juegosLista}">
+                        <td th:text="${v.index + 1}"></td>
+                        <td th_text="${juego.nombre}"></td>
+                        <td th_text="${juego.descripcion}"></td>
+                        <td th_text="${juego.precio}"></td>
                         <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
                         <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
                     </tr>
@@ -79,7 +79,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
+                    <div class="text-muted">Grupo 1 - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>

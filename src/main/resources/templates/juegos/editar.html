@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,13 +48,28 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST">
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
-                    <!-- Completar -->
+                <form method="POST" th:action="@{/juegos/guardar}" th:object="${juego}">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" th:field="*{nombre}">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" class="form-control" th:field="*{descripcion}">
+                    </div>
+                    <br/>
+                    <select id="plataforma">
+                        <option th:each="plataforma : ${plataformasLista}"
+                                th:text="${plataforma.nombre}" th:value="${}"></option>
+                    </select>
+                    <br/>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="text" class="form-control" th:field="*{precio}">
+                    </div>
 
-                    <a  class="btn btn-danger">Cancelar</a>
+                    <a  class="btn btn-danger" th:href="@{/juegos}">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
         </div>
