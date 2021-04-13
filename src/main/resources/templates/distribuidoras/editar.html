@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -48,13 +48,22 @@
             <h2>Editar Distribuidora</h2>
         </div>
         <div class="container-fluid">
-            <form method="POST">
-                <!-- Completar -->
-                <!-- Completar -->
-                <!-- Completar -->
+            <form th:object="${distribuidora}" method="POST" th:action="@{/distribuidoras/guardar}">
+                <div class="form-group">
+                    <label >Nombre</label>
+                    <input type="text" th:field="*{nombre}">
+                </div>
+                <div class="form-group">
+                    <label>Fundación</label>
+                    <input type="text" th:field="*{fundacion}">
+                </div>
+                <div class="form-group">
+                    <label>Sede</label>
+                    <input type="text" th:field="*{sede}">
+                </div>
                 <!-- Completar -->
 
-                <a class="btn btn-danger">Cancelar</a>
+                <a href="/distribuidoras/lista" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
@@ -64,7 +73,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Colocar # Grupo - PUCP @ 2021</div>
+                    <div class="text-muted">Grupo # 1 - PUCP @ 2021</div>
                 </div>
             </div>
         </footer>
