@@ -64,9 +64,9 @@
                     <tbody>
                     <tr th:each="juego,v : ${juegosLista}">
                         <td th:text="${v.index + 1}"></td>
-                        <td th_text="${juego.nombre}"></td>
-                        <td th_text="${juego.descripcion}"></td>
-                        <td th_text="${juego.precio}"></td>
+                        <td th:text="${juego.nombre}"></td>
+                        <td th:text="${juego.descripcion}"></td>
+                        <td th:text="${juego.precio}"></td>
                         <td><a class="btn btn-primary" th:href="@{'/juegos/editar?idjuego=' + ${juego.idjuego}}">Editar</a></td>
                         <td><a class="btn btn-danger" href="">Borrar</a></td>
                     </tr>

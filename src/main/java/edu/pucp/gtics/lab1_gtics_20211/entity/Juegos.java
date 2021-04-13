@@ -11,7 +11,7 @@ public class Juegos {
 
     private String nombre;
     private String descripcion;
-    private Double precio; //double para precios,no?
+    private Double precio;
     private Integer idgenero;
     private Integer idplataforma;
     private Integer ideditora;

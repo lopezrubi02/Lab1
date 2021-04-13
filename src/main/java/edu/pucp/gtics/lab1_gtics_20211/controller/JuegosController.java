@@ -32,14 +32,13 @@ public class JuegosController {
     }
 
     @GetMapping("/editar")
-    public String editarJuegos(@RequestParam("id") int idjuego, Model model){
+    public String editarJuegos(@RequestParam("idjuego") int idjuego, Model model){
         Optional<Juegos> juegosOptional = juegosRepository.findById(idjuego);
-
-        model.addAttribute("plataformasLista",plataformasRepository.findAll());
 
         if(juegosOptional.isPresent()){
             Juegos juegos = juegosOptional.get();
             model.addAttribute("juegos",juegos);
+            model.addAttribute("plataformasLista",plataformasRepository.findAll());
             return "juegos/editar";
         }else{
             return "redirect:/juegos/lista";

@@ -48,7 +48,7 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST" th:action="@{/juegos/guardar}" th:object="${juegos}">
+                <form method="post" th:action="@{/juegos/guardar}" th:object="${juegos}">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" th:field="*{nombre}">
@@ -59,18 +59,22 @@
                         <input type="text" class="form-control" th:field="*{descripcion}">
                     </div>
                     <br/>
-                    <select id="idplataforma">
-                        <option th:each="plataforma : ${plataformasLista}"
-                                th:if="${plataforma.idplataforma == juegos.idplataforma}"
-                                th:text="${plataforma.nombre}" th:value="${plataforma.idplataforma}"></option>
-                    </select>
+                    <div class="form-group">
+                        <label for="idplataforma">Plataforma</label>
+                        <br/>
+                        <select class="form-select mb-3" th:field="*{idplataforma}">
+                            <option th:each="plataforma : ${plataformasLista}"
+                                    th:selected="${plataforma.idplataforma==juegos.idplataforma}"
+                                    th:text="${plataforma.nombre}" th:value="${plataforma.idplataforma}"></option>
+                        </select>
+                    </div>
                     <br/>
                     <div class="form-group">
                         <label for="precio">Precio</label>
                         <input type="text" class="form-control" th:field="*{precio}">
                     </div>
 
-                    <a  class="btn btn-danger" th:href="@{/juegos}">Cancelar</a>
+                    <a  class="btn btn-danger" th:href="@{/juegos/lista}">Cancelar</a>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
         </div>
