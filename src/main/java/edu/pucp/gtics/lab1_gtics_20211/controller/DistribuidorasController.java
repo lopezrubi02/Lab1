@@ -14,9 +14,6 @@ import java.util.Optional;
 @Controller
 public class DistribuidorasController {
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
     @Autowired
     DistribuidorasRepository distribuidorasRepository;
