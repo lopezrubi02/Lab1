@@ -67,8 +67,8 @@
                         <td th_text="${juego.nombre}"></td>
                         <td th_text="${juego.descripcion}"></td>
                         <td th_text="${juego.precio}"></td>
-                        <td><a class="btn btn-primary" href="/distribuidoras/editar?id=4">Editar</a></td>
-                        <td><a class="btn btn-danger" href="/distribuidoras/borrar?id=4">Borrar</a></td>
+                        <td><a class="btn btn-primary" th:href="@{'/juegos/editar?idjuego=' + ${juego.idjuego}}">Editar</a></td>
+                        <td><a class="btn btn-danger" href="">Borrar</a></td>
                     </tr>
                     </tbody>
                 </table>

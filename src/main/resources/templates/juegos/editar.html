@@ -48,7 +48,7 @@
             <h2>Editar Juego</h2>
         </div>
         <div class="container-fluid">
-                <form method="POST" th:action="@{/juegos/guardar}" th:object="${juego}">
+                <form method="POST" th:action="@{/juegos/guardar}" th:object="${juegos}">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" th:field="*{nombre}">
@@ -59,9 +59,10 @@
                         <input type="text" class="form-control" th:field="*{descripcion}">
                     </div>
                     <br/>
-                    <select id="plataforma">
+                    <select id="idplataforma">
                         <option th:each="plataforma : ${plataformasLista}"
-                                th:text="${plataforma.nombre}" th:value="${}"></option>
+                                th:if="${plataforma.idplataforma == juegos.idplataforma}"
+                                th:text="${plataforma.nombre}" th:value="${plataforma.idplataforma}"></option>
                     </select>
                     <br/>
                     <div class="form-group">
