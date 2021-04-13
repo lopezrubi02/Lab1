@@ -49,6 +49,7 @@
         </div>
         <div class="container-fluid">
                 <form method="post" th:action="@{/juegos/guardar}" th:object="${juegos}">
+                    <input type="hidden" th:field="*{idjuego}">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" th:field="*{nombre}">
