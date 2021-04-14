@@ -28,15 +28,15 @@ public class DistribuidorasController {
         return "/distribuidoras/lista";
     }
 
-    @GetMapping("/distribuidoras/editar")
+    @GetMapping("distribuidoras/editar")
     public String editarDistribuidoras(Model model,
-                                       @RequestParam("iddistribuidora") int id){
-        Optional<Distribuidoras> optDistribuidora = distribuidorasRepository.findById(id);
+                                       @RequestParam("iddistribuidora") int iddistribuidora){
+        Optional<Distribuidoras> optDistribuidora = distribuidorasRepository.findById(iddistribuidora);
 
         if(optDistribuidora.isPresent()){
             Distribuidoras distribuidoras = optDistribuidora.get();
             model.addAttribute("distribuidora",distribuidoras);
-            return "distribuidoras/editar";
+            return "/distribuidoras/editar";
         }else{
             return "redirect:/lista"; //revisar que funcione
         }
@@ -47,8 +47,8 @@ public class DistribuidorasController {
         return "/distribuidoras/nuevo";
     }
     @PostMapping("distribuidora/guardar")
-    public String guardarDistribuidora(Distribuidoras distribuidoras){
-        distribuidorasRepository.save(distribuidoras);
+    public String guardarDistribuidora(Distribuidoras distribuidora){
+        distribuidorasRepository.save(distribuidora);
         return "redirect:/lista";
     }
 /*
