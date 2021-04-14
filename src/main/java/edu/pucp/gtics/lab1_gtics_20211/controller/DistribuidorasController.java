@@ -38,7 +38,7 @@ public class DistribuidorasController {
             model.addAttribute("distribuidora",distribuidoras);
             return "/distribuidoras/editar";
         }else{
-            return "redirect:/lista"; //revisar que funcione
+            return "redirect:/distribuidoras/lista"; //revisar que funcione
         }
     }
 
@@ -46,10 +46,11 @@ public class DistribuidorasController {
     public String nuevaDistribuidora(){
         return "/distribuidoras/nuevo";
     }
-    @PostMapping("distribuidora/guardar")
+
+    @PostMapping("distribuidoras/guardar")
     public String guardarDistribuidora(Distribuidoras distribuidora){
         distribuidorasRepository.save(distribuidora);
-        return "redirect:/lista";
+        return "redirect:/distribuidoras/lista";
     }
 /*
     public String borrarDistribuidora(){
